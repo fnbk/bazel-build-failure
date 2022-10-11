@@ -1,16 +1,16 @@
-# README
+# npm.cmd Error
 
-**Summary:**
+**Given** `@parcel\watcher` as a dependency
 
+**When** executing `<...>/nodejs_windows_amd64/bin/npm.cmd ci`
 
-Executing `<...>/nodejs_windows_amd64/bin/npm.cmd ci` with `@parcel\watcher` as a dependency, will lead to the error message: `The system cannot find the path specified.`.
-The reason is the following invalid path (trailing slash) in the PATH variable: `C:\\Users\\flori\\_bazel_flori\\lteuwioz\\external\\nodejs_windows_amd64\\bin\\;`
-
-Which part of the software is adding `<...>\\nodejs_windows_amd64\\bin\\;` to the PATH variable?
+**Then** the error message `The system cannot find the path specified.` is thrown
 
 
+The reason is an invalid path in the PATH variable: `C:\\Users\\flori\\_bazel_flori\\lteuwioz\\external\\nodejs_windows_amd64\\bin\\;` (notice the trailing slashes!) 
 
-Details:
+**Which part of the software is adding `<...>\\nodejs_windows_amd64\\bin\\;` to the PATH variable?**
+
 
 ```
 $ C:/users/flori/_bazel_flori/lteuwioz/external/nodejs_windows_amd64/bin/npm.cmd ci
@@ -24,7 +24,7 @@ npm ERR! The system cannot find the path specified.
 
 
 
-# Bazel Build
+# Bazel Build Error
 
 ```
 # build
@@ -95,3 +95,9 @@ INFO: 0 processes.
 FAILED: Build did NOT complete successfully (0 packages loaded)
     currently loading:
 ```
+
+# promise-spawn demonstration 
+
+Demo to demonstrate how a trailing slash in one of the PATH variables causes the error message `The system cannot find the path specified.` 
+
+[promise-spawn-demo/README.md](./promise-spawn-demo/README.md)
