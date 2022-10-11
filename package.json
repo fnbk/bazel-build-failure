@@ -1,0 +1,6 @@
+{
+  "name": "hello-world",
+  "dependencies": {
+    "@parcel/watcher": "2.0.5"
+  }
+}
